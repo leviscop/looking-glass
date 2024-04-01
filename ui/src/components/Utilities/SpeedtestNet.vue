@@ -60,17 +60,17 @@ const handleMessage = (e) => {
       speedtestData.value.serverInfo.pos = data.server.country + ' - ' + data.server.location
       break
     case 'ping':
-      action.value = '测试延迟'
+      action.value = 'Latency'
       speedtestData.value.ping = data.ping.latency
       break
     case 'download':
-      action.value = '下载'
+      action.value = 'Download'
       speedtestData.value.download = formatBytes(data.download.bandwidth, 2, true)
       progress.value.sub = Math.round(data.download.progress * 100)
       progress.value.full = Math.round(progress.value.sub / 2)
       break
     case 'upload':
-      action.value = '上传'
+      action.value = 'Upload'
       speedtestData.value.upload = formatBytes(data.upload.bandwidth, 2, true)
       progress.value.sub = Math.round(data.upload.progress * 100)
       progress.value.full = 50 + Math.round(progress.value.sub / 2)
@@ -135,7 +135,7 @@ onUnmounted(() => {
         :disabled="working"
         v-model:value="serverId"
         :style="{ width: '90%' }"
-        placeholder="speedtest.net 服务器 ID (可空)"
+        placeholder="speedtest.net server ID (optional)"
         @keyup.enter="speedtest"
       />
       <n-button :loading="working" type="primary" ghost @click="speedtest()"> Run </n-button>
@@ -147,13 +147,13 @@ onUnmounted(() => {
           <br />
         </n-alert>
         <template #description>
-          测速请求正在排队中, 目前您在第 {{ queueStat.pos }} 位 (共 {{ queueStat.total }} 位)
+          Request in queue, you are currently at {{ queueStat.pos }} p (total {{ queueStat.total }} p)
         </template>
       </n-spin>
     </n-collapse-transition>
 
     <n-collapse-transition :show="!isQueue && isSpeedtest && action == '' && !isCrash">
-      <n-alert :show-icon="false" :bordered="false"> 测试很快开始... </n-alert>
+      <n-alert :show-icon="false" :bordered="false"> Test will begin shortly... </n-alert>
     </n-collapse-transition>
     <n-collapse-transition :show="speedtestData.result != ''">
       <n-alert :show-icon="false" :bordered="false">
@@ -168,7 +168,7 @@ onUnmounted(() => {
     <n-collapse-transition :show="isSpeedtest && action != ''">
       <n-collapse-transition :show="working">
         <p>
-          {{ action }} - 进度
+          {{ action }} - Progress
           <span style="float: right">{{ progress.sub }}%</span>
         </p>
         <n-progress
@@ -178,7 +178,7 @@ onUnmounted(() => {
           :processing="working"
         />
         <p>
-          总进度 <span style="float: right">{{ progress.full }}%</span>
+          Total progress <span style="float: right">{{ progress.full }}%</span>
         </p>
         <n-progress
           type="line"
@@ -192,15 +192,15 @@ onUnmounted(() => {
         <n-table :bordered="true" :single-line="false">
           <tbody>
             <tr>
-              <td>服务器 ID</td>
+              <td>Server ID</td>
               <td>{{ speedtestData.serverInfo.id }}</td>
             </tr>
             <tr>
-              <td>服务器位置</td>
+              <td>Server Location</td>
               <td>{{ speedtestData.serverInfo.pos }}</td>
             </tr>
             <tr>
-              <td>服务器名称</td>
+              <td>Name of Server</td>
               <td>{{ speedtestData.serverInfo.name }}</td>
             </tr>
           </tbody>
@@ -212,17 +212,17 @@ onUnmounted(() => {
         <n-table :bordered="true" :single-line="false">
           <tbody>
             <tr>
-              <td>延迟</td>
+              <td>Latency</td>
               <td v-if="speedtestData.ping == '0'">等待开始</td>
               <td v-else>{{ speedtestData.ping }} ms</td>
             </tr>
             <tr>
-              <td>下载速度</td>
+              <td>Download Speed</td>
               <td v-if="speedtestData.download == ''">等待开始</td>
               <td v-else>{{ speedtestData.download }}</td>
             </tr>
             <tr>
-              <td>上传速度</td>
+              <td>Upload Speed</td>
               <td v-if="speedtestData.upload == ''">等待开始</td>
               <td v-else>{{ speedtestData.upload }}</td>
             </tr>
