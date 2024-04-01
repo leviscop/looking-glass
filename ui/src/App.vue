@@ -81,6 +81,13 @@ onMounted(async () => {
               <p>{{ $t('memory_usage') }}: {{ appStore.memoryUsage }}</p>
             </div>
           </div>
+          <div>
+            <n-select
+              v-model:value="currentLangCode"
+              :options="langDropdown"
+              style="min-width: 150px"
+              @update:value="handleLangChange"
+            />
           </div>
         </n-space>
       </n-space>
