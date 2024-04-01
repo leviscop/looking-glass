@@ -60,17 +60,17 @@ const handleMessage = (e) => {
       speedtestData.value.serverInfo.pos = data.server.country + ' - ' + data.server.location
       break
     case 'ping':
-      action.value = 'Latency'
+      action.value = '测试延迟'
       speedtestData.value.ping = data.ping.latency
       break
     case 'download':
-      action.value = 'Download'
+      action.value = '下载'
       speedtestData.value.download = formatBytes(data.download.bandwidth, 2, true)
       progress.value.sub = Math.round(data.download.progress * 100)
       progress.value.full = Math.round(progress.value.sub / 2)
       break
     case 'upload':
-      action.value = 'Upload'
+      action.value = '上传'
       speedtestData.value.upload = formatBytes(data.upload.bandwidth, 2, true)
       progress.value.sub = Math.round(data.upload.progress * 100)
       progress.value.full = 50 + Math.round(progress.value.sub / 2)
