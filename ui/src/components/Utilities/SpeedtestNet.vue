@@ -213,17 +213,17 @@ onUnmounted(() => {
           <tbody>
             <tr>
               <td>Latency</td>
-              <td v-if="speedtestData.ping == '0'">等待开始</td>
+              <td v-if="speedtestData.ping == '0'">Waiting</td>
               <td v-else>{{ speedtestData.ping }} ms</td>
             </tr>
             <tr>
               <td>Download Speed</td>
-              <td v-if="speedtestData.download == ''">等待开始</td>
+              <td v-if="speedtestData.download == ''">Waiting</td>
               <td v-else>{{ speedtestData.download }}</td>
             </tr>
             <tr>
               <td>Upload Speed</td>
-              <td v-if="speedtestData.upload == ''">等待开始</td>
+              <td v-if="speedtestData.upload == ''">Waiting</td>
               <td v-else>{{ speedtestData.upload }}</td>
             </tr>
           </tbody>
