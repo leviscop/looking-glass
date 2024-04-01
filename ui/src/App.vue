@@ -56,7 +56,7 @@ onMounted(async () => {
     <n-global-style />
     <n-message-provider>
       <n-space vertical>
-        <h2>Looking Glass Server</h2>
+        <h2>Dipo Looking Glass Server</h2>
         <LoadingCard v-if="appStore.connecting" />
         <template v-else>
           <InfoCard />
@@ -81,14 +81,14 @@ onMounted(async () => {
               <p>{{ $t('memory_usage') }}: {{ appStore.memoryUsage }}</p>
             </div>
           </div>
-          <div>
-            <n-select
-              v-model:value="currentLangCode"
-              :options="langDropdown"
-              style="min-width: 150px"
-              @update:value="handleLangChange"
-            />
-          </div>
+#          <div>
+#            <n-select
+#              v-model:value="currentLangCode"
+#              :options="langDropdown"
+#              style="min-width: 150px"
+#              @update:value="handleLangChange"
+#            />
+#          </div>
         </n-space>
       </n-space>
     </n-message-provider>
