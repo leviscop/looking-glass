@@ -7,7 +7,9 @@ const url = ref(new URL(location.href))
 
 <template>
   <template
-    v-if="lg.undip.ac.id"
+    v-if="
+      (appStore.config.filetest_follow_domain && appStore.config.filetest_follow_domain != 'lg.undip.ac.id')
+    "
   >
     <n-space vertical align="center">
       <h3>{{ $t('file_speedtest') }}</h3>
