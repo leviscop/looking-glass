@@ -44,7 +44,7 @@ const url = ref(new URL(location.href))
             :href="
               url.protocol +
               '//' +
-              lg.undip.ac.id +
+              'lg.undip.ac.id' +
               ':' +
               url.port +
               '/session/' +
@@ -72,7 +72,7 @@ const url = ref(new URL(location.href))
             :href="
               url.protocol +
               '//[' +
-              lg.undip.ac.id +
+              'lg.undip.ac.id' +
               ']:' +
               url.port +
               '/session/' +
