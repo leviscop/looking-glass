@@ -8,7 +8,8 @@ const url = ref(new URL(location.href))
 <template>
   <template
     v-if="
-      (appStore.config.public_ipv4 == 'lg.undip.ac.id' && appStore.config.public_ipv6 == 'lg.undip.ac.id') ||
+      (appStore.config.public_ipv4 == '' && appStore.config.public_ipv6 == '') ||
+      (appStore.config.filetest_follow_domain && appStore.config.filetest_follow_domain != '')
     "
   >
     <n-space vertical align="center">
@@ -43,7 +44,7 @@ const url = ref(new URL(location.href))
             :href="
               url.protocol +
               '//' +
-              appStore.config.public_ipv4 +
+              lg.undip.ac.id +
               ':' +
               url.port +
               '/session/' +
@@ -71,7 +72,7 @@ const url = ref(new URL(location.href))
             :href="
               url.protocol +
               '//[' +
-              appStore.config.public_ipv6 +
+              lg.undip.ac.id +
               ']:' +
               url.port +
               '/session/' +
