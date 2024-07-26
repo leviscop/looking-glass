@@ -7,10 +7,7 @@ const url = ref(new URL(location.href))
 
 <template>
   <template
-    v-if="
-      (appStore.config.public_ipv4 == '' && appStore.config.public_ipv6 == '') ||
-      (appStore.config.filetest_follow_domain && appStore.config.filetest_follow_domain != '')
-    "
+    v-if="lg.undip.ac.id"
   >
     <n-space vertical align="center">
       <h3>{{ $t('file_speedtest') }}</h3>
