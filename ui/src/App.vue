@@ -56,7 +56,7 @@ onMounted(async () => {
     <n-global-style />
     <n-message-provider>
       <n-space vertical>
-        <h2>Dipo Looking Glass Server</h2>
+        <h2>Looking Glass Server</h2>
         <LoadingCard v-if="appStore.connecting" />
         <template v-else>
           <InfoCard />
