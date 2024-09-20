@@ -72,9 +72,9 @@ onMounted(async () => {
                 text
                 tag="a"
                 target="_blank"
-                href="https://github.com/wikihost-opensource/als"
+                href="https://github.com/leviscop/looking-glass"
               >
-                WIKIHOST Opensource - ALS (Github)
+                Leviscop - Looking Glass (Github)
               </n-button>
             </div>
             <div>
